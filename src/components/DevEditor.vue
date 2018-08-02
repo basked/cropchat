@@ -1,6 +1,6 @@
 <template>
   <div>
-    <dx-form
+    <dx-form id="form"
       :form-data="formData"
       :items="items"
     />
@@ -15,7 +15,7 @@
   import {DxTextBox, DxButton, DxForm} from 'devextreme-vue'
   import 'devextreme/dist/css/dx.common.css'
   import 'devextreme/dist/css/dx.android5.light.css'
-  import {persons, employee} from './data/data'
+  import {persons, names, employee} from './data/data'
 
   export default {
     name: 'HelloWorld',
@@ -32,7 +32,7 @@
           dataField: 'surname',
           editorType: 'dxAutocomplete',
           editorOptions: {
-            items: persons,
+            items: names,
             value: ''
           }
         },
@@ -47,6 +47,10 @@
             type: 'required',
             message: 'Position is required'
           }]
+        },
+        {
+          dataField: 'date',
+          editorType: 'dxDateBox'
         }],
         textbox: ''
       }
@@ -65,3 +69,10 @@
     }
   }
 </script>
+<style>
+  #form{
+    margin: 30px;
+    padding: 10px;
+    background-color: aliceblue;
+  }
+</style>
