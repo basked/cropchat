@@ -2,14 +2,15 @@
   <div id="app">
     <header>
       <span>Vue.js PWA</span>
-    </header>
-    <main>
       <ul>
         <li><router-link to="/">Главная</router-link></li>
         <li><router-link to="/basket">Basket</router-link></li>
         <li><router-link to="/deveditor">DevEditor</router-link></li>
       </ul>
       <router-view></router-view>
+    </header>
+    <main>
+
      </main>
   </div>
 </template>
@@ -55,4 +56,8 @@ header span {
   box-sizing: border-box;
   padding-top: 16px;
 }
+  ul{
+    text-align: center;
+    color: azure!important;
+  }
 </style>
