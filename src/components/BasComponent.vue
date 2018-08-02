@@ -1,6 +1,6 @@
 <template>
-<div>  
-  <h1>{{msg}}</h1>  
+<div>
+  <h1>{{msg}}</h1>
   <input type="button" value="Change message" @click="getRouterName" >
  </div>
 
