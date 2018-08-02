@@ -1,36 +1,67 @@
 <template>
-    <div calss='widget'>
-        <dx-text-box></dx-text-box>
-        <br>
-        <dx-button :text='text' @click="getClick"/>
-    </div>
+  <div>
+    <dx-form
+      :form-data="formData"
+      :items="items"
+    />
+    <dx-text-box :value='textbox'></dx-text-box>
+    <dx-button :text='text' @click="getClick"/>
+    <dx-form></dx-form>
+  </div>
 </template>
 <script>
-    import {DxTextBox, DxButton} from 'devextreme-vue'
-    import 'devextreme/dist/css/dx.common.css'
-    import 'devextreme/dist/css/dx.darkmoon.css'
+  /* eslint-disable no-unused-vars */
 
-    export default {
-      name: 'HelloWorld',
-      data () {
-        return {
-          text: 'Hello!'
-        }
-      },
-      methods: {
-        getClick () {
-          alert('Ya Amigo!')
-        }
-      },
-      components: {
-        DxButton,
-        DxTextBox
+  import {DxTextBox, DxButton, DxForm} from 'devextreme-vue'
+  import 'devextreme/dist/css/dx.common.css'
+  import 'devextreme/dist/css/dx.android5.light.css'
+  import {persons, employee} from './data/data'
+
+  export default {
+    name: 'HelloWorld',
+    data: function () {
+      return {
+        formData: employee,
+
+        text: 'OK',
+
+        items: [{
+          dataField: 'name'
+        },
+        {
+          dataField: 'surname',
+          editorType: 'dxAutocomplete',
+          editorOptions: {
+            items: persons,
+            value: ''
+          }
+        },
+        {
+          dataField: 'age',
+          editorType: 'dxSelectBox',
+          editorOptions: {
+            items: persons,
+            value: ''
+          },
+          validationRules: [{
+            type: 'required',
+            message: 'Position is required'
+          }]
+        }],
+        textbox: ''
       }
+    },
+    methods: {
+      getClick () {
+        this.text = 'Cancel'
+        this.textbox = 'Text Box'
+        alert('Ya Amigo!')
+      }
+    },
+    components: {
+      DxForm,
+      DxButton,
+      DxTextBox
     }
+  }
 </script>
-
-<style>
-    .widget {
-        display: inline-block
-    }
-</style>
