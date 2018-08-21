@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import BasComponent from '@/components/BasComponent'
 import DevEditor from '@/components/DevEditor'
-
+import DataGrid from '@/components/DataGrid'
 Vue.use(Router)
 
 export default new Router({
@@ -22,6 +22,11 @@ export default new Router({
       path: '/deveditor',
       name: 'deveditor',
       component: DevEditor
+    },
+    {
+      path: '/datagrid',
+      name: 'datagrid',
+      component: DataGrid
     }
 
   ]
